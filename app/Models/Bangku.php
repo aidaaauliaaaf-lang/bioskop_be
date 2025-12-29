@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pelanggan extends Model
+class Bangku extends Model
 {
     //
     protected $guarded = [

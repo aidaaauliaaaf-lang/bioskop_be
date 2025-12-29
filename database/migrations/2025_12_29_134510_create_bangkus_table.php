@@ -11,16 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('films', function (Blueprint $table) {
+        Schema::create('bangkus', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('sinopsis');
-            $table->string('image_url');
-            $table->string('duration');
-            $table->string('genre');
-            $table->integer('age_views');
-            $table->integer('harga');
-
+            $table->string('kode_bangku');
+            $table->unsignedBigInteger('theater_id');
+            $table->foreign('theater_id')->references('id')->on('theaters')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('films');
+        Schema::dropIfExists('bangkus');
     }
 };

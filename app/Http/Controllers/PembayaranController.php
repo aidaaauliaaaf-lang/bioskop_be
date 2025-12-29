@@ -5,12 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class TheaterController extends Controller
+class PembayaranController extends Controller
 {
     //
-    public function index()
-    {
-        //
-        
-    }
 }

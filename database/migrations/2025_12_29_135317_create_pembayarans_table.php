@@ -11,16 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('films', function (Blueprint $table) {
+        Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('sinopsis');
-            $table->string('image_url');
-            $table->string('duration');
-            $table->string('genre');
-            $table->integer('age_views');
-            $table->integer('harga');
-
+            $table->unsignedBigInteger('pesanan_id');
+            $table->foreign('pesanan_id')->references('id')->on('pesanans')->onDelete('cascade');
+            $table->enum('jns_pembayaran', ['gopay', 'bank transfer'])->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('films');
+        Schema::dropIfExists('pembayarans');
     }
 };

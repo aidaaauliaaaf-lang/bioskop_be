@@ -1,6 +1,11 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\BangkuController;
+use App\Http\Controllers\FilmController;
+use App\Http\Controllers\TicketController;
+use App\Models\Bangku;
+
 // use App\Http\Controllers\Api\MovieController;
 // use App\Http\Controllers\Api\ScheduleController;
 // use App\Http\Controllers\Api\SeatController;
@@ -10,12 +15,15 @@ use App\Http\Controllers\Api\AuthController;
 Route::prefix('v1')->group(function () {
 
     // Auth
+    // Route::get('/bangku-store', [BangkuController::class, 'index']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
-
+    
     // // Public
-    // Route::get('/movies', [MovieController::class, 'index']);
-    // Route::get('/movies/{id}', [MovieController::class, 'show']);
+    Route::get('/film', [FilmController::class, 'index']);
+    Route::get('/film/{id}', [FilmController::class, 'show']);
+
+    Route::post('/ticket/store', [TicketController::class, 'store']);
     // Route::get('/schedules/{movie_id}', [ScheduleController::class, 'byMovie']);
     // Route::get('/seats/{schedule_id}', [SeatController::class, 'bySchedule']);
 

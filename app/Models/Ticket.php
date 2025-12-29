@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Pelanggan extends Model
+class Ticket extends Model
 {
     //
     protected $guarded = [
@@ -12,4 +12,9 @@ class Pelanggan extends Model
         'created_at',
         'updated_at',
     ];
+
+    public function film()
+    {
+        return $this->hasOne(Film::class, 'id', 'film_id');
+    }
 }
