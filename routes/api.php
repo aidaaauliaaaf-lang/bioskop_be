@@ -15,13 +15,13 @@ use App\Models\Bangku;
 Route::prefix('v1')->group(function () {
 
     // Auth
-    // Route::get('/bangku-store', [BangkuController::class, 'index']);
+    Route::get('/bangku-store', [BangkuController::class, 'index']);
     Route::post('/register', [AuthController::class, 'register']);
     Route::post('/login', [AuthController::class, 'login']);
     
     // // Public
     Route::get('/film', [FilmController::class, 'index']);
-    Route::get('/film/{id}', [FilmController::class, 'show']);
+    Route::get('/film/{film}', [FilmController::class, 'show']);
 
     Route::post('/ticket/store', [TicketController::class, 'store']);
     // Route::get('/schedules/{movie_id}', [ScheduleController::class, 'byMovie']);
